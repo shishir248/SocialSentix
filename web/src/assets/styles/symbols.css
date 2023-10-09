@@ -1,0 +1,972 @@
+@charset "UTF-8";
+.layout-main {
+  width: 100%;
+  padding-top: 30px;
+  display: grid;
+  gap: 2rem;
+  height: 100%;
+  grid-template-columns: 0.7fr 1.5fr 1fr;
+  grid-template-rows: 2fr 1fr;
+}
+.layout-main .top-1, .layout-main .top-2 {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.layout-main .top-1 img, .layout-main .top-2 img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.layout-main .top-3 {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: static;
+  overflow-y: auto;
+}
+.layout-main .bottom-sec {
+  grid-column: span 3;
+  padding: 50px;
+  color: rgba(51, 134, 125, 0.7137254902);
+  line-height: 1.4;
+  font-style: italic;
+}
+.layout-main .thread-body {
+  overflow: hidden;
+}
+.layout-main .thread-wrapper {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #213d4e;
+  box-shadow: 0px 0px 12px rgba(37, 133, 122, 0.3647058824);
+  transition: transform 0.4s ease-in-out;
+}
+.layout-main .thread-wrapper:hover {
+  transform: scale(1.03);
+}
+.layout-main .thread-wrapper a {
+  text-decoration: none;
+  color: #258579;
+}
+.layout-main .thread-wrapper .thread-user {
+  font-style: italic;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 25px;
+  color: #338C81;
+}
+.layout-main .thread-wrapper .thread-user::before {
+  content: url("../images/reddit.svg");
+  position: absolute;
+  left: -8px;
+}
+.layout-main .thread-readmore {
+  text-decoration: underline;
+  color: #7bafa9;
+}
+.layout-main .card--result {
+  z-index: 199;
+  width: 100%;
+  height: 100%;
+  max-height: 250px;
+  border-radius: 10px;
+  transition: transform 0.5s ease-in-out;
+  /* The typing effect */
+  /* result__chart STYLES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  /* SASS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+}
+.layout-main .card--result .card--result__chart {
+  height: 100%;
+  padding-top: 40px;
+}
+.layout-main .card--result .card--result-divider {
+  height: 2px;
+  background-color: #f0f0f0;
+  margin: 10px 0;
+}
+.layout-main .card--result .card--result__info {
+  margin-top: 30px;
+}
+.layout-main .card--result .card--result__chart__laylay {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: rgba(0, 124, 76, 0.8);
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto;
+  padding-top: 30px;
+  text-align: center;
+}
+.layout-main .card--result .card--result__chart__laylay li {
+  width: -moz-max-content;
+  width: max-content;
+  margin-bottom: 10px;
+}
+.layout-main .card--result .card--result__chart__laylay li:nth-of-type(1) {
+  color: rgba(0, 124, 76, 0.8);
+}
+.layout-main .card--result .card--result__chart__laylay li:nth-of-type(2) {
+  color: rgba(144, 210, 118, 0.7882352941);
+}
+.layout-main .card--result .result__chart {
+  max-width: 200px;
+  max-height: 100px;
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+}
+.layout-main .card--result .result__chart *,
+.layout-main .card--result .result__chart::before {
+  box-sizing: border-box;
+}
+.layout-main .card--result .result__chart {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.layout-main .card--result .result__chart::before,
+.layout-main .card--result .result__chart::after {
+  position: absolute;
+}
+.layout-main .card--result .result__chart::before {
+  width: 100%;
+  content: "";
+  border: 25px solid #687987;
+  border-bottom: none;
+  height: 100%;
+  border-top-left-radius: 175px;
+  border-top-right-radius: 175px;
+}
+.layout-main .card--result .result__chart li {
+  position: absolute;
+  top: 100%;
+  height: 100%;
+  left: 0;
+  width: 100%;
+  border: 25px solid;
+  border-top: none;
+  border-bottom-left-radius: 175px;
+  border-bottom-right-radius: 175px;
+  transform-origin: 50% 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+.layout-main .card--result .result__chart li.result__chart__layer_one {
+  border-color: rgba(0, 124, 76, 0.8);
+  z-index: 313;
+  animation-delay: 0.8s;
+}
+.layout-main .card--result .result__chart li.result__chart__layer_two {
+  border-color: rgba(144, 210, 118, 0.7882352941);
+  animation-delay: 0.9s;
+  z-index: 315;
+}
+.layout-main .card--result .result__chart li.fillingAll {
+  animation-name: rotate-all;
+}
+@keyframes rotate1 {
+  100% {
+    transform: rotate(2deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling1 {
+  animation-name: rotate1;
+}
+@keyframes rotate2 {
+  100% {
+    transform: rotate(4deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling2 {
+  animation-name: rotate2;
+}
+@keyframes rotate3 {
+  100% {
+    transform: rotate(6deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling3 {
+  animation-name: rotate3;
+}
+@keyframes rotate4 {
+  100% {
+    transform: rotate(8deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling4 {
+  animation-name: rotate4;
+}
+@keyframes rotate5 {
+  100% {
+    transform: rotate(9deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling5 {
+  animation-name: rotate5;
+}
+@keyframes rotate6 {
+  100% {
+    transform: rotate(11deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling6 {
+  animation-name: rotate6;
+}
+@keyframes rotate7 {
+  100% {
+    transform: rotate(13deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling7 {
+  animation-name: rotate7;
+}
+@keyframes rotate8 {
+  100% {
+    transform: rotate(15deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling8 {
+  animation-name: rotate8;
+}
+@keyframes rotate9 {
+  100% {
+    transform: rotate(17deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling9 {
+  animation-name: rotate9;
+}
+@keyframes rotate10 {
+  100% {
+    transform: rotate(18deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling10 {
+  animation-name: rotate10;
+}
+@keyframes rotate11 {
+  100% {
+    transform: rotate(20deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling11 {
+  animation-name: rotate11;
+}
+@keyframes rotate12 {
+  100% {
+    transform: rotate(22deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling12 {
+  animation-name: rotate12;
+}
+@keyframes rotate13 {
+  100% {
+    transform: rotate(24deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling13 {
+  animation-name: rotate13;
+}
+@keyframes rotate14 {
+  100% {
+    transform: rotate(26deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling14 {
+  animation-name: rotate14;
+}
+@keyframes rotate15 {
+  100% {
+    transform: rotate(27deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling15 {
+  animation-name: rotate15;
+}
+@keyframes rotate16 {
+  100% {
+    transform: rotate(29deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling16 {
+  animation-name: rotate16;
+}
+@keyframes rotate17 {
+  100% {
+    transform: rotate(31deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling17 {
+  animation-name: rotate17;
+}
+@keyframes rotate18 {
+  100% {
+    transform: rotate(33deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling18 {
+  animation-name: rotate18;
+}
+@keyframes rotate19 {
+  100% {
+    transform: rotate(35deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling19 {
+  animation-name: rotate19;
+}
+@keyframes rotate20 {
+  100% {
+    transform: rotate(36deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling20 {
+  animation-name: rotate20;
+}
+@keyframes rotate21 {
+  100% {
+    transform: rotate(38deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling21 {
+  animation-name: rotate21;
+}
+@keyframes rotate22 {
+  100% {
+    transform: rotate(40deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling22 {
+  animation-name: rotate22;
+}
+@keyframes rotate23 {
+  100% {
+    transform: rotate(42deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling23 {
+  animation-name: rotate23;
+}
+@keyframes rotate24 {
+  100% {
+    transform: rotate(44deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling24 {
+  animation-name: rotate24;
+}
+@keyframes rotate25 {
+  100% {
+    transform: rotate(45deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling25 {
+  animation-name: rotate25;
+}
+@keyframes rotate26 {
+  100% {
+    transform: rotate(47deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling26 {
+  animation-name: rotate26;
+}
+@keyframes rotate27 {
+  100% {
+    transform: rotate(49deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling27 {
+  animation-name: rotate27;
+}
+@keyframes rotate28 {
+  100% {
+    transform: rotate(51deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling28 {
+  animation-name: rotate28;
+}
+@keyframes rotate29 {
+  100% {
+    transform: rotate(53deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling29 {
+  animation-name: rotate29;
+}
+@keyframes rotate30 {
+  100% {
+    transform: rotate(54deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling30 {
+  animation-name: rotate30;
+}
+@keyframes rotate31 {
+  100% {
+    transform: rotate(56deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling31 {
+  animation-name: rotate31;
+}
+@keyframes rotate32 {
+  100% {
+    transform: rotate(58deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling32 {
+  animation-name: rotate32;
+}
+@keyframes rotate33 {
+  100% {
+    transform: rotate(60deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling33 {
+  animation-name: rotate33;
+}
+@keyframes rotate34 {
+  100% {
+    transform: rotate(62deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling34 {
+  animation-name: rotate34;
+}
+@keyframes rotate35 {
+  100% {
+    transform: rotate(63deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling35 {
+  animation-name: rotate35;
+}
+@keyframes rotate36 {
+  100% {
+    transform: rotate(65deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling36 {
+  animation-name: rotate36;
+}
+@keyframes rotate37 {
+  100% {
+    transform: rotate(67deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling37 {
+  animation-name: rotate37;
+}
+@keyframes rotate38 {
+  100% {
+    transform: rotate(69deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling38 {
+  animation-name: rotate38;
+}
+@keyframes rotate39 {
+  100% {
+    transform: rotate(71deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling39 {
+  animation-name: rotate39;
+}
+@keyframes rotate40 {
+  100% {
+    transform: rotate(72deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling40 {
+  animation-name: rotate40;
+}
+@keyframes rotate41 {
+  100% {
+    transform: rotate(74deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling41 {
+  animation-name: rotate41;
+}
+@keyframes rotate42 {
+  100% {
+    transform: rotate(76deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling42 {
+  animation-name: rotate42;
+}
+@keyframes rotate43 {
+  100% {
+    transform: rotate(78deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling43 {
+  animation-name: rotate43;
+}
+@keyframes rotate44 {
+  100% {
+    transform: rotate(80deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling44 {
+  animation-name: rotate44;
+}
+@keyframes rotate45 {
+  100% {
+    transform: rotate(81deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling45 {
+  animation-name: rotate45;
+}
+@keyframes rotate46 {
+  100% {
+    transform: rotate(83deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling46 {
+  animation-name: rotate46;
+}
+@keyframes rotate47 {
+  100% {
+    transform: rotate(85deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling47 {
+  animation-name: rotate47;
+}
+@keyframes rotate48 {
+  100% {
+    transform: rotate(87deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling48 {
+  animation-name: rotate48;
+}
+@keyframes rotate49 {
+  100% {
+    transform: rotate(89deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling49 {
+  animation-name: rotate49;
+}
+@keyframes rotate50 {
+  100% {
+    transform: rotate(90deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling50 {
+  animation-name: rotate50;
+}
+@keyframes rotate51 {
+  100% {
+    transform: rotate(92deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling51 {
+  animation-name: rotate51;
+}
+@keyframes rotate52 {
+  100% {
+    transform: rotate(94deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling52 {
+  animation-name: rotate52;
+}
+@keyframes rotate53 {
+  100% {
+    transform: rotate(96deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling53 {
+  animation-name: rotate53;
+}
+@keyframes rotate54 {
+  100% {
+    transform: rotate(98deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling54 {
+  animation-name: rotate54;
+}
+@keyframes rotate55 {
+  100% {
+    transform: rotate(99deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling55 {
+  animation-name: rotate55;
+}
+@keyframes rotate56 {
+  100% {
+    transform: rotate(101deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling56 {
+  animation-name: rotate56;
+}
+@keyframes rotate57 {
+  100% {
+    transform: rotate(103deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling57 {
+  animation-name: rotate57;
+}
+@keyframes rotate58 {
+  100% {
+    transform: rotate(105deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling58 {
+  animation-name: rotate58;
+}
+@keyframes rotate59 {
+  100% {
+    transform: rotate(107deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling59 {
+  animation-name: rotate59;
+}
+@keyframes rotate60 {
+  100% {
+    transform: rotate(108deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling60 {
+  animation-name: rotate60;
+}
+@keyframes rotate61 {
+  100% {
+    transform: rotate(110deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling61 {
+  animation-name: rotate61;
+}
+@keyframes rotate62 {
+  100% {
+    transform: rotate(112deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling62 {
+  animation-name: rotate62;
+}
+@keyframes rotate63 {
+  100% {
+    transform: rotate(114deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling63 {
+  animation-name: rotate63;
+}
+@keyframes rotate64 {
+  100% {
+    transform: rotate(116deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling64 {
+  animation-name: rotate64;
+}
+@keyframes rotate65 {
+  100% {
+    transform: rotate(117deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling65 {
+  animation-name: rotate65;
+}
+@keyframes rotate66 {
+  100% {
+    transform: rotate(119deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling66 {
+  animation-name: rotate66;
+}
+@keyframes rotate67 {
+  100% {
+    transform: rotate(121deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling67 {
+  animation-name: rotate67;
+}
+@keyframes rotate68 {
+  100% {
+    transform: rotate(123deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling68 {
+  animation-name: rotate68;
+}
+@keyframes rotate69 {
+  100% {
+    transform: rotate(125deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling69 {
+  animation-name: rotate69;
+}
+@keyframes rotate70 {
+  100% {
+    transform: rotate(126deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling70 {
+  animation-name: rotate70;
+}
+@keyframes rotate71 {
+  100% {
+    transform: rotate(128deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling71 {
+  animation-name: rotate71;
+}
+@keyframes rotate72 {
+  100% {
+    transform: rotate(130deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling72 {
+  animation-name: rotate72;
+}
+@keyframes rotate73 {
+  100% {
+    transform: rotate(132deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling73 {
+  animation-name: rotate73;
+}
+@keyframes rotate74 {
+  100% {
+    transform: rotate(134deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling74 {
+  animation-name: rotate74;
+}
+@keyframes rotate75 {
+  100% {
+    transform: rotate(135deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling75 {
+  animation-name: rotate75;
+}
+@keyframes rotate76 {
+  100% {
+    transform: rotate(137deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling76 {
+  animation-name: rotate76;
+}
+@keyframes rotate77 {
+  100% {
+    transform: rotate(139deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling77 {
+  animation-name: rotate77;
+}
+@keyframes rotate78 {
+  100% {
+    transform: rotate(141deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling78 {
+  animation-name: rotate78;
+}
+@keyframes rotate79 {
+  100% {
+    transform: rotate(143deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling79 {
+  animation-name: rotate79;
+}
+@keyframes rotate80 {
+  100% {
+    transform: rotate(144deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling80 {
+  animation-name: rotate80;
+}
+@keyframes rotate81 {
+  100% {
+    transform: rotate(146deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling81 {
+  animation-name: rotate81;
+}
+@keyframes rotate82 {
+  100% {
+    transform: rotate(148deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling82 {
+  animation-name: rotate82;
+}
+@keyframes rotate83 {
+  100% {
+    transform: rotate(150deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling83 {
+  animation-name: rotate83;
+}
+@keyframes rotate84 {
+  100% {
+    transform: rotate(152deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling84 {
+  animation-name: rotate84;
+}
+@keyframes rotate85 {
+  100% {
+    transform: rotate(153deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling85 {
+  animation-name: rotate85;
+}
+@keyframes rotate86 {
+  100% {
+    transform: rotate(155deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling86 {
+  animation-name: rotate86;
+}
+@keyframes rotate87 {
+  100% {
+    transform: rotate(157deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling87 {
+  animation-name: rotate87;
+}
+@keyframes rotate88 {
+  100% {
+    transform: rotate(159deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling88 {
+  animation-name: rotate88;
+}
+@keyframes rotate89 {
+  100% {
+    transform: rotate(161deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling89 {
+  animation-name: rotate89;
+}
+@keyframes rotate90 {
+  100% {
+    transform: rotate(162deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling90 {
+  animation-name: rotate90;
+}
+@keyframes rotate91 {
+  100% {
+    transform: rotate(164deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling91 {
+  animation-name: rotate91;
+}
+@keyframes rotate92 {
+  100% {
+    transform: rotate(166deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling92 {
+  animation-name: rotate92;
+}
+@keyframes rotate93 {
+  100% {
+    transform: rotate(168deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling93 {
+  animation-name: rotate93;
+}
+@keyframes rotate94 {
+  100% {
+    transform: rotate(170deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling94 {
+  animation-name: rotate94;
+}
+@keyframes rotate95 {
+  100% {
+    transform: rotate(171deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling95 {
+  animation-name: rotate95;
+}
+@keyframes rotate96 {
+  100% {
+    transform: rotate(173deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling96 {
+  animation-name: rotate96;
+}
+@keyframes rotate97 {
+  100% {
+    transform: rotate(175deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling97 {
+  animation-name: rotate97;
+}
+@keyframes rotate98 {
+  100% {
+    transform: rotate(177deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling98 {
+  animation-name: rotate98;
+}
+@keyframes rotate99 {
+  100% {
+    transform: rotate(179deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling99 {
+  animation-name: rotate99;
+}
+@keyframes rotate100 {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+.layout-main .card--result .result__chart li.filling100 {
+  animation-name: rotate100;
+}/*# sourceMappingURL=symbols.css.map */

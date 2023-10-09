@@ -1,0 +1,224 @@
+$green2: #90d276c9;
+$green: #007c4ccc;
+$pink: #ff286e;
+
+.layout-main {
+  width: 100%;
+  padding-top: 30px;
+  display: grid;
+  gap: 2rem;
+  height: 100%;
+  grid-template-columns: 0.7fr 1.5fr 1fr;
+  grid-template-rows: 2fr 1fr;
+
+  .top-1, .top-2 {
+    object-fit: cover;
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+
+    }
+  }
+
+  .top-3 {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: static;
+    overflow-y: auto;
+  }
+
+  .bottom-sec {
+    grid-column: span 3;
+    padding: 50px;
+    color: #33867db6;
+    line-height: 1.4;
+    font-style: italic;
+  }
+
+  .thread-body {
+    overflow: hidden;
+  }
+
+  .thread-wrapper {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #213d4e;
+    box-shadow: 0px 0px 12px #25857a5d;
+    transition: transform .4s ease-in-out;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    a {
+      text-decoration: none;
+      color: #258579;
+    }
+
+    .thread-user {
+      font-style: italic;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
+      color: #338C81;
+
+      &::before {
+        content: url('../images/reddit.svg');
+        position: absolute;
+        left: -8px;
+      }
+    }
+  }
+
+  .thread-readmore {
+    text-decoration: underline;
+    color: #7bafa9;
+  }
+
+  .card--result {
+    z-index: 199;
+    width: 100%;
+    height: 100%;
+    max-height: 250px;
+    border-radius: 10px;
+    transition: transform .5s ease-in-out;
+
+    /* The typing effect */
+    .card--result__chart {
+      height: 100%;
+      padding-top: 40px;
+    }
+
+    .card--result-divider {
+
+      height: 2px;
+      background-color: #f0f0f0;
+      margin: 10px 0;
+    }
+
+    .card--result__info {
+      margin-top: 30px;
+    }
+
+    .card--result__chart__laylay {
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: $green;
+      width: max-content;
+      margin: 0 auto;
+      padding-top: 30px;
+      text-align: center;
+
+      li {
+        width: max-content;
+        margin-bottom: 10px;
+
+        &:nth-of-type(1) {
+          color: $green;
+        }
+
+        &:nth-of-type(2) {
+          color: $green2;
+        }
+      }
+    }
+
+    .result__chart {
+      max-width: 200px;
+      max-height: 100px;
+      margin: 0 auto;
+      padding: 0;
+      list-style-type: none;
+    }
+
+    .result__chart *,
+    .result__chart::before {
+      box-sizing: border-box;
+    }
+
+    /* result__chart STYLES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+    .result__chart {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .result__chart::before,
+    .result__chart::after {
+      position: absolute;
+    }
+
+    .result__chart::before {
+      width: 100%;
+      content: '';
+      border: 25px solid #687987;
+      border-bottom: none;
+      height: 100%;
+      border-top-left-radius: 175px;
+      border-top-right-radius: 175px;
+    }
+
+    .result__chart li {
+      position: absolute;
+      top: 100%;
+      height: 100%;
+      left: 0;
+      width: 100%;
+      border: 25px solid;
+      border-top: none;
+      border-bottom-left-radius: 175px;
+      border-bottom-right-radius: 175px;
+      transform-origin: 50% 0;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      animation-fill-mode: forwards;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+    }
+
+    .result__chart li.result__chart__layer_one {
+      border-color: $green;
+      z-index: 313;
+      animation-delay: .8s;
+    }
+
+    .result__chart li.result__chart__layer_two {
+      border-color: $green2;
+      animation-delay: .9s;
+      z-index: 315;
+    }
+
+    .result__chart li.fillingAll {
+      animation-name: rotate-all;
+    }
+
+    /* SASS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+    @mixin keyframes($name, $degree) {
+      @keyframes rotate#{$name} {
+        100% {
+          transform: rotate(#{$degree}deg);
+        }
+      }
+    }
+
+    @mixin filling($name) {
+      .result__chart li.filling#{$name} {
+        animation-name: rotate#{$name};
+      }
+    }
+
+    @for $i from 1 through 100 {
+      $name: $i;
+      $degree: ceil(($i * 180) / 100);
+      @include keyframes($name, $degree);
+      @include filling($name);
+    }
+  }
+
+}

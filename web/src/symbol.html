@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentix {{ .Ticker }}</title>
+  <link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Fira+Mono:regular,500,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Fira+Code:300,regular,500,600,700" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/styles/style.css">
+  <link rel="stylesheet" href="/assets/styles/symbols.css">
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.1/axios.min.js" integrity="sha512-emSwuKiMyYedRwflbZB2ghzX8Cw8fmNVgZ6yQNNXXagFzFOaQmbvQ1vmDkddHjm5AITcBIZfC7k4ShQSjgPAmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script type="module" src="/assets/scripts/symbol.js"></script>
+</head>
+<body class="sentix-ai">
+  <main>
+    <h1 class="dashboard-title">SentixAI {{ .Ticker }}</h1>
+    <div class="layout-main" data-symbol= {{ .Ticker }}>
+      <div class="top-1 layout-section">
+        <div class="card--result">
+        <div class="card--result__chart">
+            <ul class="result__chart">
+              <li class='result__chart__layer_one filling'></li>
+              <li class='result__chart__layer_two filling'></li>
+            </ul>
+            <div class="card--result__chart__laylay text-center">
+              <li>Positive Score: <span></span></li>
+              <li>Compound Score: <span></span></li>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="top-2 layout-section">
+        <img src="/assets/images/chart.png" alt="" srcset="">
+
+      </div>
+      <div class="top-3 layout-section">
+        <div class="thread-wrapper">
+          <a href="/" class="thread">
+            <div class="thread-user">u/anonymous</div>
+            <div class="thread-body">It's going to be at least 2-3 years before SPY can pass $500.</div>
+          </a>
+        </div>
+      </div>
+      <div class="bottom-sec layout-section"></div>
+    </div>
+  </main>
+</body>
+</html>
